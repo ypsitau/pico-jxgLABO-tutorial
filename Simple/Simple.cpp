@@ -6,10 +6,9 @@ using namespace jxglib;
 
 int main()
 {
+	::stdio_init_all();
 	LABOPlatform::Instance.Initialize();
-    stdio_init_all();
-
-    while (true) {
-        Tickable::Tick();
-    }
+	while (true) {
+		Tickable::Tick();
+	}
 }
