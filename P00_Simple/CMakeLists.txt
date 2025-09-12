@@ -28,33 +28,33 @@ set(PICO_BOARD pico CACHE STRING "Board type")
 # Pull in Raspberry Pi Pico SDK (must be before project)
 include(pico_sdk_import.cmake)
 
-project(00-Simple C CXX ASM)
+project(P00_Simple C CXX ASM)
 
 # Initialise the Raspberry Pi Pico SDK
 pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(00-Simple 00-Simple.cpp )
+add_executable(P00_Simple P00_Simple.cpp )
 
-pico_set_program_name(00-Simple "00-Simple")
-pico_set_program_version(00-Simple "0.1")
+pico_set_program_name(P00_Simple "P00_Simple")
+pico_set_program_version(P00_Simple "0.1")
 
 # Modify the below lines to enable/disable output over UART/USB
-pico_enable_stdio_uart(00-Simple 0)
-pico_enable_stdio_usb(00-Simple 0)
+pico_enable_stdio_uart(P00_Simple 0)
+pico_enable_stdio_usb(P00_Simple 0)
 
 # Add the standard library to the build
-target_link_libraries(00-Simple
+target_link_libraries(P00_Simple
         pico_stdlib)
 
 # Add the standard include files to the build
-target_include_directories(00-Simple PRIVATE
+target_include_directories(P00_Simple PRIVATE
         ${CMAKE_CURRENT_LIST_DIR}
 )
 
-pico_add_extra_outputs(00-Simple)
+pico_add_extra_outputs(P00_Simple)
 
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/../pico-jxglib pico-jxglib)
-target_link_libraries(00-Simple jxglib_LABOPlatform_FullCmd)
-jxglib_configure_LABOPlatform(00-Simple)
+target_link_libraries(P00_Simple jxglib_LABOPlatform_FullCmd)
+jxglib_configure_LABOPlatform(P00_Simple)

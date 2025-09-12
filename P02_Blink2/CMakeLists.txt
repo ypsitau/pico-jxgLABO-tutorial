@@ -28,33 +28,33 @@ set(PICO_BOARD pico CACHE STRING "Board type")
 # Pull in Raspberry Pi Pico SDK (must be before project)
 include(pico_sdk_import.cmake)
 
-project(01-Blink C CXX ASM)
+project(P02_Blink2 C CXX ASM)
 
 # Initialise the Raspberry Pi Pico SDK
 pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(01-Blink 01-Blink.cpp )
+add_executable(P02_Blink2 P02_Blink2.cpp )
 
-pico_set_program_name(01-Blink "01-Blink")
-pico_set_program_version(01-Blink "0.1")
+pico_set_program_name(P02_Blink2 "P02_Blink2")
+pico_set_program_version(P02_Blink2 "0.1")
 
 # Modify the below lines to enable/disable output over UART/USB
-pico_enable_stdio_uart(01-Blink 0)
-pico_enable_stdio_usb(01-Blink 0)
+pico_enable_stdio_uart(P02_Blink2 0)
+pico_enable_stdio_usb(P02_Blink2 0)
 
 # Add the standard library to the build
-target_link_libraries(01-Blink
+target_link_libraries(P02_Blink2
         pico_stdlib)
 
 # Add the standard include files to the build
-target_include_directories(01-Blink PRIVATE
+target_include_directories(P02_Blink2 PRIVATE
         ${CMAKE_CURRENT_LIST_DIR}
 )
 
-pico_add_extra_outputs(01-Blink)
+pico_add_extra_outputs(P02_Blink2)
 
+target_link_libraries(P02_Blink2 jxglib_LABOPlatform_FullCmd)
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/../pico-jxglib pico-jxglib)
-target_link_libraries(01-Blink jxglib_LABOPlatform_FullCmd)
-jxglib_configure_LABOPlatform(01-Blink)
+jxglib_configure_LABOPlatform(P02_Blink2)
